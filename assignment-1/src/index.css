@@ -1,0 +1,35 @@
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.profile-img {
+  width: 200px;
+  height: 200px;
+}
+
+.card-style {
+  display: block;
+  padding: 10px;
+  margin: 20px 0px;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
+    0 1px 5px 0 rgb(0 0 0 / 20%);
+  box-sizing: border-box;
+  min-height: 200px;
+}
+
+.card-title-style {
+  font-size: 2rem;
+}
+
+.info {
+  margin-top: 15px;
+}
+
+ul {
+  list-style: none;
+}
+
+.card-body-style {
+  line-height: 90%;
+}
