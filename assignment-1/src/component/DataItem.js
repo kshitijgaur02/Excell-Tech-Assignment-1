@@ -36,7 +36,7 @@ export default class DataItem extends Component {
               </p>
               <p>
                 <strong>Company: </strong>
-                {this.state.allData.company}
+                {this.state.allData.company.name}
               </p>
               <p>
                 <strong>Website: </strong>
@@ -56,6 +56,6 @@ export default class DataItem extends Component {
     );
   }
   componentDidMount() {
-    //console.log("componentDidMount - product");
+    //console.log("componentDidMount");
   }
 }

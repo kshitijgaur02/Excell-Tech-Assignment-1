@@ -13,19 +13,26 @@ export default class DataList extends Component {
   }
 
   componentDidMount = async () => {
-    var response = await fetch("https://jsonplaceholder.typicode.com/users");
+    var response = await fetch("https://jsonplaceholder.typicode.com/users", {
+      method: "GET",
+    });
     var information = await response.json();
     console.log("did mount ", information);
     this.setState({ data: information });
   };
 
+  // componentDidMount() {
+  //   fetch("https://jsonplaceholder.typicode.com/users")
+  //     .then((response) => response.json())
+  //     .then((data) => this.setState({ data: data }));
+  // }
   render() {
     console.log("render datalist");
     return (
       <ul>
         {this.state.data.map((info) => {
           return (
-            <li key={info.id}>
+            <li key={info.username}>
               <DataItem allData={info} />
             </li>
           );
@@ -35,11 +42,11 @@ export default class DataList extends Component {
   }
 
   componentWillUnmount() {
-    //console.log("componentWillUnmount - shopping cart");
+    //console.log("componentWillUnmount ");
   }
 
   componentDidCatch(error, info) {
-    //console.log("componentDidCatch - shopping cart", error, info);
+    //console.log("componentDidCatch ", error, info);
     localStorage.lastError = `${error}\n ${JSON.stringify(info)}`;
   }
 }
