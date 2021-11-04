@@ -4,33 +4,25 @@ import DataImageItem from "./DataImageItem";
 export default class DataItem extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      allData: { userData: this.props.allData, userImage: [] },
+      allData: {
+        userData: this.props.allData,
+      },
     };
+
     console.log("constructor dataitem ", this.state.allData);
+    // let userImage = `https://avatars.dicebear.com/v2/avataaars/
+    // ${this.state.allData.userData.username}.svg?options[mood][]=happy`;
   }
-
-  // componentDidMount = async () => {
-  //   var response = await fetch(
-  //     "https://avatars.dicebear.com/v2/avataaars/{{this.state.allData.userData.username}}.svg?options[mood][]=happy",
-  //     {
-  //       method: "GET",
-  //     }
-  //   );
-  //   var information = await response.json();
-  //   console.log("didmount dataitem", information);
-  //   this.setState({ ...this.state.allData, userImage: information });
-  // };
-
   render() {
-    console.log("render DataItem");
+    let userImage = `http://avatars.dicebear.com/v2/avataaars/${this.state.allData.userData.username}.svg?options[mood][]=happy`;
+
+    let renImage = userImage.toString();
+    console.log(renImage);
     return (
       <div className="card card-style">
         <div className=" card-horizontal">
-          {this.state.allData.userImage.map((info) => {
-            return <DataImageItem cardDataImage={info} />;
-          })}
+          <DataImageItem cardDataImage={renImage} />
           <div className="card-body card-body-style">
             <h2 className="card-title card-title-style">
               {this.state.allData.userData.name}

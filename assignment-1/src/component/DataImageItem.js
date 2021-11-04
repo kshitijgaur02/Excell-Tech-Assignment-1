@@ -1,21 +1,18 @@
 import React, { Component } from "react";
-import DataBody from "./DataBody";
 import DataImage from "./DataImage";
 
 export default class DataImageItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cardDataImage: this.props.cardDataImage,
+      cardDataImage: this.props.cardDataImage, //Contains image url
     };
   }
 
   render() {
     return (
       <div className="img-square-wrapper p-2">
-        {this.state.cardDataImage.map((image) => {
-          return <DataImage imageData={image} />;
-        })}
+        <DataImage imageData={this.state.cardDataImage} />;
       </div>
     );
   }
