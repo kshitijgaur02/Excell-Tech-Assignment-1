@@ -1,61 +1,68 @@
 import React, { Component } from "react";
+import DataImageItem from "./DataImageItem";
 
 export default class DataItem extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      allData: this.props.allData,
+      allData: { userData: this.props.allData, userImage: [] },
     };
-    console.log("constructor dataitem");
-    console.log(this.state);
+    console.log("constructor dataitem ", this.state.allData);
   }
+
+  // componentDidMount = async () => {
+  //   var response = await fetch(
+  //     "https://avatars.dicebear.com/v2/avataaars/{{this.state.allData.userData.username}}.svg?options[mood][]=happy",
+  //     {
+  //       method: "GET",
+  //     }
+  //   );
+  //   var information = await response.json();
+  //   console.log("didmount dataitem", information);
+  //   this.setState({ ...this.state.allData, userImage: information });
+  // };
+
   render() {
+    console.log("render DataItem");
     return (
       <div className="card card-style">
         <div className=" card-horizontal">
-          <div className="img-square-wrapper p-2">
-            <img
-              className="profile-img"
-              src="http://via.placeholder.com/300x180"
-              alt=""
-            />
-          </div>
+          {this.state.allData.userImage.map((info) => {
+            return <DataImageItem cardDataImage={info} />;
+          })}
           <div className="card-body card-body-style">
             <h2 className="card-title card-title-style">
-              {this.state.allData.name}
+              {this.state.allData.userData.name}
             </h2>
             <div className="info">
               <p>
                 <strong>Email: </strong>
-                {this.state.allData.email}
+                {this.state.allData.userData.email}
               </p>
               <p>
                 <strong>Phone: </strong>
-                {this.state.allData.phone}
+                {this.state.allData.userData.phone}
               </p>
               <p>
                 <strong>Company: </strong>
-                {this.state.allData.company.name}
+                {this.state.allData.userData.company.name}
               </p>
               <p>
                 <strong>Website: </strong>
-                {this.state.allData.website}
+                {this.state.allData.userData.website}
               </p>
               <p>
                 <strong>Address: </strong>
-                {this.state.allData.address.street},{" "}
-                {this.state.allData.address.suite},
-                {this.state.allData.address.city},{" "}
-                {this.state.allData.address.zipcode}
+                {this.state.allData.userData.address.street},{" "}
+                {this.state.allData.userData.address.suite},
+                {this.state.allData.userData.address.city},{" "}
+                {this.state.allData.userData.address.zipcode}
               </p>
             </div>
           </div>
         </div>
       </div>
     );
-  }
-  componentDidMount() {
-    //console.log("componentDidMount");
   }
 }

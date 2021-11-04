@@ -17,7 +17,7 @@ export default class DataList extends Component {
       method: "GET",
     });
     var information = await response.json();
-    console.log("did mount ", information);
+    console.log("did mount datalist", information);
     this.setState({ data: information });
   };
 
@@ -39,10 +39,6 @@ export default class DataList extends Component {
         })}
       </ul>
     );
-  }
-
-  componentWillUnmount() {
-    //console.log("componentWillUnmount ");
   }
 
   componentDidCatch(error, info) {
