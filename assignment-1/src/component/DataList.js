@@ -29,15 +29,11 @@ export default class DataList extends Component {
   render() {
     console.log("render datalist");
     return (
-      <ul>
+      <div className="container">
         {this.state.data.map((info) => {
-          return (
-            <li key={info.username}>
-              <DataItem allData={info} />
-            </li>
-          );
+          return <DataItem allData={info} />;
         })}
-      </ul>
+      </div>
     );
   }
 

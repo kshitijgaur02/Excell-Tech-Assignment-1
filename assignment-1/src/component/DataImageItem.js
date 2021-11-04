@@ -11,8 +11,8 @@ export default class DataImageItem extends Component {
 
   render() {
     return (
-      <div className="img-square-wrapper p-2">
-        <DataImage imageData={this.state.cardDataImage} />;
+      <div>
+        <DataImage imageData={this.state.cardDataImage} />
       </div>
     );
   }
