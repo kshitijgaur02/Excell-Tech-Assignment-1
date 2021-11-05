@@ -15,17 +15,11 @@ export default class DataItem extends Component {
       userImage: `http://avatars.dicebear.com/v2/avataaars/${this.state.allData.userData.username}.svg?options[mood][]=happy`,
     };
 
-    console.log("constructor dataitem ", this.state.allData);
-    console.log("constructor dataitem image", this.state1.userImage);
-    // let userImage = `https://avatars.dicebear.com/v2/avataaars/
-    // ${this.state.allData.userData.username}.svg?options[mood][]=happy`;
+    // console.log("constructor dataitem ", this.state.allData);
+    // console.log("constructor dataitem image", this.state1.userImage);
   }
 
   render() {
-    //let userImage = `http://avatars.dicebear.com/v2/avataaars/${this.state.allData.userData.username}.svg?options[mood][]=happy`;
-
-    //let renImage = userImage.toString();
-    //console.log(renImage);
     return (
       <div className="card card-style">
         <div className=" card-horizontal">

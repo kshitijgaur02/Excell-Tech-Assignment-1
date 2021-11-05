@@ -7,6 +7,7 @@ export default class DataList extends Component {
 
     this.state = {
       data: [],
+      isLoading: true,
     };
 
     console.log("constructor datalist");
@@ -17,18 +18,16 @@ export default class DataList extends Component {
       method: "GET",
     });
     var information = await response.json();
-    console.log("did mount datalist", information);
+    //console.log("did mount datalist", information);
     this.setState({ data: information });
+    this.setState({ isLoading: false });
   };
 
-  // componentDidMount() {
-  //   fetch("https://jsonplaceholder.typicode.com/users")
-  //     .then((response) => response.json())
-  //     .then((data) => this.setState({ data: data }));
-  // }
   render() {
     console.log("render datalist");
-    return (
+    return this.state.isLoading ? (
+      <div class="spinner"></div>
+    ) : (
       <div className="container">
         {this.state.data.map((info) => {
           return <DataItem allData={info} />;
